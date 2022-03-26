@@ -16,6 +16,14 @@ class DataPesertaScreen extends StatelessWidget {
     height = size.height;
     width = size.width;
     return Scaffold(
+      appBar: AppBar(
+        title: Center(
+            child: Text(
+          "Data peserta",
+          style: TextStyle(color: Colors.white),
+        )),
+        backgroundColor: Colors.blueAccent,
+      ),
       body: Obx(
         () => datapesertacontroller.isLoading()
             ? Center(child: const CircularProgressIndicator())
@@ -23,97 +31,127 @@ class DataPesertaScreen extends StatelessWidget {
                 child: ListView.builder(
                 itemCount: datapesertacontroller.datapesertaList.length,
                 itemBuilder: (content, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 400,
-                        height: 500,
-                        margin: EdgeInsets.only(bottom: 10, top: 10),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [Colors.blueAccent, Colors.blueAccent]),
-                          borderRadius: BorderRadius.circular(10),
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/img/lib.jpg"),
+                                  fit: BoxFit.cover)),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                    margin: EdgeInsets.all(15),
+                                    child: DataTable(
+                                      columns: [
+                                        DataColumn(label: Text("Nama")),
+                                        DataColumn(
+                                            label: Text("No Pendaftaran")),
+                                        DataColumn(
+                                            label: Text("Tanggal Daftar")),
+                                        DataColumn(
+                                            label: Text("Jenis Kelamin")),
+                                        DataColumn(label: Text("Tempat Lahir")),
+                                        DataColumn(
+                                            label: Text("Tanggal Lahir")),
+                                        DataColumn(label: Text("agama")),
+                                        DataColumn(
+                                            label: Text("Asal Provinsi")),
+                                        DataColumn(label: Text("Asal Kota")),
+                                        DataColumn(label: Text("Asal Desa")),
+                                        DataColumn(label: Text("Asal Alamat")),
+                                        DataColumn(label: Text("Kode Pos")),
+                                        DataColumn(label: Text("Jurusan")),
+                                        DataColumn(
+                                            label: Text("Nama Orang Tua")),
+                                        DataColumn(
+                                            label: Text("Pekerjaan Orang Tua")),
+                                        DataColumn(label: Text("No Hp Ortu")),
+                                        DataColumn(
+                                            label: Text("Alamat Orang tua")),
+                                        DataColumn(label: Text("Email")),
+                                      ],
+                                      rows: [
+                                        DataRow(
+                                          cells: [
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].nama
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .noPendaftaran
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .tglDaftar
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].jk
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .tempatLahir
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].tglLahir
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].agama
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .asalProvinsi
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .asalKabKota
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .asalDesaKelurahan
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].alamat
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].kodePos
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].jurusan
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].namaOrtu
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .pekerjaanOrtu
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].noHpOrtu
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index]
+                                                .alamatOrtu
+                                                .toString())),
+                                            DataCell(Text(datapesertacontroller
+                                                .datapesertaList[index].email
+                                                .toString())),
+                                          ],
+                                        ),
+                                      ],
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: Colors.white,
+                                      ),
+                                    )),
+                              ]),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("nama :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].nama
-                                    .toString()),
-                            Text("No Pendaftaran :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].noPendaftaran
-                                    .toString()),
-                            Text("Tanggal Daftar :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].tglDaftar
-                                    .toString()),
-                            Text("Jenis Kelamin :" +
-                                datapesertacontroller.datapesertaList[index].jk
-                                    .toString()),
-                            Text("Tempat Lahir :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].tempatLahir
-                                    .toString()),
-                            Text("Tanggal Lahir :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].tglLahir
-                                    .toString()),
-                            Text("Agama :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].agama
-                                    .toString()),
-                            Text("Asal Provinsi :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].asalProvinsi
-                                    .toString()),
-                            Text("Asal Kota :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].asalKabKota
-                                    .toString()),
-                            Text("Asal Desa :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].asalDesaKelurahan
-                                    .toString()),
-                            Text("Alamat :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].alamat
-                                    .toString()),
-                            Text("Kode Pos :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].kodePos
-                                    .toString()),
-                            Text("Jurusan :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].jurusan
-                                    .toString()),
-                            Text("Nama Ortu :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].namaOrtu
-                                    .toString()),
-                            Text("Pekerjaan Orang Tua :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].pekerjaanOrtu
-                                    .toString()),
-                            Text("Nomor Hp Orang Tua :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].noHpOrtu
-                                    .toString()),
-                            Text("Alamat Orang Tua :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].alamatOrtu
-                                    .toString()),
-                            Text("Email :" +
-                                datapesertacontroller
-                                    .datapesertaList[index].email
-                                    .toString()),
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   );
                 },
               )),

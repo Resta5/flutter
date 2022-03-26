@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                       child: Text(
                         "Selamat Datang Di Web\nPPDB SMKN 3 Bandung",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 0, 91, 248),
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                   Text(
                     "\nSMKN 3 BANDUNG\n",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color.fromARGB(255, 0, 94, 255),
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                   Text(
                     "\n\n",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.blueAccent,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
