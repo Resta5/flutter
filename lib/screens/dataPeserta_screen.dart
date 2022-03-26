@@ -17,78 +17,99 @@ class DataPesertaScreen extends StatelessWidget {
     width = size.width;
     return Scaffold(
       body: Obx(
-        () => DataPesertaController.isLoading()
+        () => datapesertacontroller.isLoading()
             ? Center(child: const CircularProgressIndicator())
             : Center(
                 child: ListView.builder(
-                itemCount: datapesertacontroller.dataPesertaList.length,
+                itemCount: datapesertacontroller.datapesertaList.length,
                 itemBuilder: (content, index) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
                         width: 400,
-                        height: 100,
+                        height: 500,
                         margin: EdgeInsets.only(bottom: 10, top: 10),
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
-                              colors: [Colors.blueAccent, Colors.redAccent]),
+                              colors: [Colors.blueAccent, Colors.blueAccent]),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].nama
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].noPendaftaran
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].tgl_daftar
-                                .toString()),
-                            Text(datapesertacontroller.dataPesertaList[index].jk
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].tempat_lahir
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].tgl_lahir
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].agama
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].asal_provinsi
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].asal_kab_kota
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].asal_desa_kelurahan
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].alamat
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].kode_pos
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].jurusan
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].nama_ortu
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].pekerjaan_ortu
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].no_hp_ortu
-                                .toString()),
-                            Text(datapesertacontroller
-                                .dataPesertaList[index].alamat_ortu
-                                .toString()),
+                            Text("nama :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].nama
+                                    .toString()),
+                            Text("No Pendaftaran :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].noPendaftaran
+                                    .toString()),
+                            Text("Tanggal Daftar :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].tglDaftar
+                                    .toString()),
+                            Text("Jenis Kelamin :" +
+                                datapesertacontroller.datapesertaList[index].jk
+                                    .toString()),
+                            Text("Tempat Lahir :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].tempatLahir
+                                    .toString()),
+                            Text("Tanggal Lahir :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].tglLahir
+                                    .toString()),
+                            Text("Agama :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].agama
+                                    .toString()),
+                            Text("Asal Provinsi :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].asalProvinsi
+                                    .toString()),
+                            Text("Asal Kota :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].asalKabKota
+                                    .toString()),
+                            Text("Asal Desa :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].asalDesaKelurahan
+                                    .toString()),
+                            Text("Alamat :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].alamat
+                                    .toString()),
+                            Text("Kode Pos :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].kodePos
+                                    .toString()),
+                            Text("Jurusan :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].jurusan
+                                    .toString()),
+                            Text("Nama Ortu :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].namaOrtu
+                                    .toString()),
+                            Text("Pekerjaan Orang Tua :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].pekerjaanOrtu
+                                    .toString()),
+                            Text("Nomor Hp Orang Tua :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].noHpOrtu
+                                    .toString()),
+                            Text("Alamat Orang Tua :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].alamatOrtu
+                                    .toString()),
+                            Text("Email :" +
+                                datapesertacontroller
+                                    .datapesertaList[index].email
+                                    .toString()),
                           ],
                         ),
                       ),

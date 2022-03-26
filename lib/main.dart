@@ -3,7 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:pkl/main_screen.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 
-import 'controller_brindings.dart';
+import 'controller_bindings.dart';
 
 void main() {
   runApp(const MyApp());

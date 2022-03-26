@@ -1,11 +1,12 @@
-class dataPeserta {
+class DataPesertaModel {
   bool? success;
   String? message;
   List<Data>? data;
 
-  dataPeserta({this.success, this.message, this.data, nama});
+  DataPesertaModel(
+    {required this.success, required this.message, required this.data});
 
-  dataPeserta.fromJson(Map<String, dynamic> json) {
+  DataPesertaModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     message = json['message'];
     if (json['data'] != null) {
@@ -25,8 +26,6 @@ class dataPeserta {
     }
     return data;
   }
-
-  static void add(dataPeserta dataPeserta) {}
 }
 
 class Data {
@@ -47,6 +46,7 @@ class Data {
   String? pekerjaanOrtu;
   int? noHpOrtu;
   String? alamatOrtu;
+  String? email;
 
   Data(
       {this.nama,
@@ -65,7 +65,8 @@ class Data {
       this.namaOrtu,
       this.pekerjaanOrtu,
       this.noHpOrtu,
-      this.alamatOrtu});
+      this.alamatOrtu,
+      this.email});
 
   Data.fromJson(Map<String, dynamic> json) {
     nama = json['nama'];
@@ -85,6 +86,7 @@ class Data {
     pekerjaanOrtu = json['pekerjaan_ortu'];
     noHpOrtu = json['no_hp_ortu'];
     alamatOrtu = json['alamat_ortu'];
+    email = json['email'];
   }
 
   Map<String, dynamic> toJson() {
@@ -106,6 +108,7 @@ class Data {
     data['pekerjaan_ortu'] = this.pekerjaanOrtu;
     data['no_hp_ortu'] = this.noHpOrtu;
     data['alamat_ortu'] = this.alamatOrtu;
+    data['email'] = this.email;
     return data;
   }
 }

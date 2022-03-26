@@ -4,6 +4,7 @@ import 'package:pkl/menu2_screen.dart';
 import 'package:pkl/menu3_screen.dart';
 import 'package:pkl/data_peserta.dart';
 import 'package:pkl/screens/dataPeserta_screen.dart';
+import 'package:pkl/screens/berkas_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   @override
@@ -45,7 +46,7 @@ class MenuScreen extends StatelessWidget {
             onTap: () {
               Navigator.of(context, rootNavigator: false).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context) => DataPeserta(),
+                  builder: (BuildContext context) => BerkasScreen(),
                 ),
               );
             },

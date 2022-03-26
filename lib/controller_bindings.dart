@@ -7,8 +7,6 @@ import 'controllers/dataPeserta_controller.dart';
 class ControllerBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put<AlbumController>(AlbumController());
     Get.put<UserController>(UserController());
-    Get.put<DataPesertaController>(DataPesertaController());
   }
 }

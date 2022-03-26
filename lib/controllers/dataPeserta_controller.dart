@@ -1,30 +1,27 @@
-import 'dart:convert';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get_rx/get_rx.dart';
+import 'package:pkl/services/dataPeserta_service.dart';
 
-import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-import 'package:pkl/models/dataPeserta_model.dart';
+import '../models/dataPeserta_model.dart';
 
 class DataPesertaController extends GetxController {
-  dataPeserta? datapeserta;
-  var isDataLoading = false.obs;
+  var datapesertaList = RxList<Data>();
+  var isLoading = true.obs;
 
-  get dataPesertaList => null;
-  getKategori() async {
-    try {
-      http.Response response = await http
-          .get(Uri.parse('https://ppdb1.herokuapp.com/api/dataPeserta'));
-
-      if (response.statusCode == 200) {
-        var result = jsonDecode(response.body);
-
-        datapeserta = dataPeserta.fromJson(result);
-      } else {}
-    } catch (e) {
-      print("error get data");
-    } finally {
-      isDataLoading(false);
-    }
+  @override
+  void onInit() {
+    super.onInit();
+    fetchDataPesertaData();
   }
 
-  static isLoading() {}
+  void fetchDataPesertaData() async {
+    try {
+      isLoading(true);
+      var datapeserta = await DataPesertaService.fetchDataPesertaData();
+      datapesertaList.value = datapeserta.data as List<Data>;
+      update();
+    } finally {
+      isLoading(false);
+    }
+  }
 }

@@ -9,7 +9,7 @@ class DataPeserta extends StatelessWidget {
       appBar: AppBar(
         title: Center(
             child: Text(
-          "Data Barang",
+          "Data peserta",
           style: TextStyle(color: Colors.white),
         )),
         backgroundColor: Colors.blueAccent,
